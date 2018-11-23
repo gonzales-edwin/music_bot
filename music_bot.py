@@ -58,7 +58,6 @@ def search_post(search_keyword):
         else:
             continue
 
-
 while True:
     new_post = get_random_post()
     time.sleep(5)
