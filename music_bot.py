@@ -28,7 +28,9 @@ def slack_post_message(message):
     return post
 
 subreddit = reddit.subreddit('listentothis')
-
+# subreddit = reddit.subreddit('listentothis').gilded()
+# subreddit = reddit.multireddit('listentothis', 'mixes')
+subreddit
 
 def get_random_post():
     random_post = subreddit.random()
@@ -43,9 +45,9 @@ def get_random_post():
 
 
 def search_post(search_keyword):
-    random_post = subreddit.search(search_keyword, limit=None, sort=None)
+    random_post = subreddit.search(search_keyword, limit=None, sort='Top')
     for result in random_post:
-        if 'youtu' in result.url:
+        if 'youtu' or 'souncloud' in result.url:
             print(f'{result.title} - {result.url}')
             with open(video_url_list, 'r+') as text_file:
                 lines = text_file.readlines()
