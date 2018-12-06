@@ -5,9 +5,9 @@ import time
 import praw
 import requests
 
-''' 
-    TODO: remove functions to only use slack and deprecate file creation
-'''
+
+# TODO: remove functions to only use slack and deprecate file creation
+
 REDDIT_CLIENT_ID = os.getenv('REDDIT_CLIENT_ID')
 REDDIT_CLIENT_SECRET = os.getenv('REDDIT_CLIENT_SECRET')
 REDDIT_USER_AGENT = os.getenv('REDDIT_USER_AGENT')
