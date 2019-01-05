@@ -32,15 +32,17 @@ subreddit = reddit.subreddit('listentothis')
 # subreddit = reddit.multireddit('listentothis', 'mixes')
 subreddit
 
+
 def get_random_post():
     random_post = subreddit.random()
     post = reddit.submission(id=random_post)
     song_title = post.title
     song_url = post.url
+    if not 'youtu' in song_url:
+        get_random_post()
     slack_post_message(song_title)
     slack_post_message(song_url)
-    print(f'{song_title} - {song_url}')
-    genre = song_title[song_title.index('[') + 1: song_title.index(']')].split()
+    genre = song_title[song_title.index('[') + 1: song_title.index(']')].replace('/', ' ').split()
     return random.choice(genre)
 
 
